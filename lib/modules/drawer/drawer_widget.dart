@@ -11,7 +11,7 @@ class DrawerWidget extends StatelessWidget {
   final List<DrawerData> _drawerData = [
     DrawerData(
       'Blog',
-      ['1', '2'],
+      ['assets/blog_one.png', '2'],
     ),
     DrawerData(
       'Contact',
@@ -86,6 +86,13 @@ class DrawerWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (_, i) {
                 final innerData = data.parts[i];
+                if (innerData.length > 1) {
+                  return Image.asset(
+                    innerData,
+                    height: 100,
+                    width: 45,
+                  );
+                }
                 return ListTile(
                   title: Text(innerData),
                   selected: i == 0,
