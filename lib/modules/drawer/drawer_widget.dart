@@ -11,11 +11,11 @@ class DrawerWidget extends StatelessWidget {
   final List<DrawerData> _drawerData = [
     DrawerData(
       'Blog',
-      ['assets/blog_one.png', '2'],
+      ['assets/img_blog_one.png', '2'],
     ),
     DrawerData(
       'Contact',
-      ['1', '2'],
+      ['assets/img_contact_one.png', '2'],
     ),
     DrawerData(
       'Content',
@@ -86,22 +86,30 @@ class DrawerWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (_, i) {
                 final innerData = data.parts[i];
-                if (innerData.length > 1) {
-                  return Image.asset(
-                    innerData,
-                    height: 100,
-                    width: 45,
-                  );
-                }
-                return ListTile(
-                  title: Text(innerData),
-                  selected: i == 0,
-                );
+                if (innerData.length > 1)
+                  return DrawerItem(assetPath: innerData);
+                return SizedBox.shrink();
               },
             )
           ],
         );
       },
+    );
+  }
+}
+
+class DrawerItem extends StatelessWidget {
+  final String assetPath;
+
+  const DrawerItem({Key key, this.assetPath}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Image.asset(
+        assetPath,
+        height: 75,
+        width: 45,
+      ),
     );
   }
 }

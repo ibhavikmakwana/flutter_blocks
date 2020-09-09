@@ -4,10 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-enum DisplayType {
-  web,
-  mobile,
-}
+enum DisplayType { web, mobile }
 
 const _desktopPortraitBreakpoint = 700.0;
 const _desktopLandscapeBreakpoint = 1000.0;
