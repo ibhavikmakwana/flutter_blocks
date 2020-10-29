@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutterblocks/store/home/main_store.dart';
 import 'package:provider/provider.dart';
 
 import 'modules/home/main_screen.dart';
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Blocks',
         debugShowCheckedModeBanner: false,
         theme: _themeStore.selectedTheme,
-        home: MainScreen(),
+        home: Provider(
+          create: (_) => MainStore(),
+          child: MainScreen(),
+        ),
       ),
     );
   }

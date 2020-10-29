@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ContactOneMobile extends StatelessWidget {
+class ContentOneMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Container();
   }
 }
